@@ -1,7 +1,8 @@
+from io import BufferedRandom
 from django.db import models
 
 # Create your models here.
-class category(models.Model):
+class Category(models.Model):
     name =models.CharField(max_length=255)
     image =models.ImageField(upload_to='products/')
     description = models.TextField(blank=True, null=True)
@@ -25,7 +26,7 @@ class category(models.Model):
          size = models.CharField(max_length=255)
          price = models.FloatField()
          brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-         categoey = models.ForeignKey(category, on_delete=models.CASCADE)
+         categoey = models.ForeignKey(Category, on_delete=models.CASCADE)
          description = models.TextField(blank=True , null=True)
 
          def __str__(self):
